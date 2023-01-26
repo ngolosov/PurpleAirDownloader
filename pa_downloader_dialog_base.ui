@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PurpleAirDownloaderDialogBase</class>
+ <widget class="QDialog" name="PurpleAirDownloaderDialogBase">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>383</width>
+    <height>307</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>PurpleAir data downloader</string>
+  </property>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>381</width>
+     <height>306</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0,0,0,0,0,0,0,0,0,0">
+      <property name="leftMargin">
+       <number>5</number>
+      </property>
+      <property name="topMargin">
+       <number>5</number>
+      </property>
+      <property name="rightMargin">
+       <number>5</number>
+      </property>
+      <property name="bottomMargin">
+       <number>5</number>
+      </property>
+      <property name="spacing">
+       <number>5</number>
+      </property>
+      <item row="1" column="0">
+       <widget class="QLabel" name="end_date_label">
+        <property name="text">
+         <string>End date:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QDateEdit" name="start_date_dateEdit">
+        <property name="toolTip">
+         <string>Enter the start date for the period for what the air quality data will be averaged</string>
+        </property>
+        <property name="dateTime">
+         <datetime>
+          <hour>0</hour>
+          <minute>0</minute>
+          <second>0</second>
+          <year>2020</year>
+          <month>1</month>
+          <day>1</day>
+         </datetime>
+        </property>
+        <property name="calendarPopup">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="1">
+       <widget class="QComboBox" name="layers_combobox">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="toolTip">
+         <string>Select the name of layer of interest from the list</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QDateEdit" name="end_date_dateEdit">
+        <property name="toolTip">
+         <string>Enter the end date for averaging</string>
+        </property>
+        <property name="dateTime">
+         <datetime>
+          <hour>0</hour>
+          <minute>0</minute>
+          <second>0</second>
+          <year>2021</year>
+          <month>1</month>
+          <day>1</day>
+         </datetime>
+        </property>
+        <property name="calendarPopup">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="start_date_label">
+        <property name="text">
+         <string>Start date:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="2">
+       <widget class="QLineEdit" name="east_long_le">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="toolTip">
+         <string>Enter the East longitude of the bounding box</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QComboBox" name="sensor_type_qb">
+        <property name="toolTip">
+         <string>Select if you wish to download the data for the sensors located inside or outside of the buildings</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>Outside</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Inside</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="10" column="2">
+       <widget class="QPushButton" name="refresh_layers_pb">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="toolTip">
+         <string>Refresh layer list if you made any changes in the layers since the tool window is open</string>
+        </property>
+        <property name="text">
+         <string>Refresh layer list</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="0">
+       <widget class="QLineEdit" name="west_long_le">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="toolTip">
+         <string>Enter the West longitude of the bounding box</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="1">
+       <widget class="QLineEdit" name="south_lat_le">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="toolTip">
+         <string>Enter the South latitude of the bounding box</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="1">
+       <widget class="QLineEdit" name="north_lat_le">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="toolTip">
+         <string>Enter the North Latitude of the bounding box</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="1">
+       <widget class="QLabel" name="nl_label">
+        <property name="text">
+         <string>North latitude</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QRadioButton" name="use_current_extent_rb">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="toolTip">
+         <string>Click to download data from the sensors failing into the current map extent</string>
+        </property>
+        <property name="text">
+         <string>Use current extent</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+        <property name="autoExclusive">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="sensor_type_label">
+        <property name="text">
+         <string>Sensor type</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="1">
+       <widget class="QLabel" name="sl_label">
+        <property name="text">
+         <string>South latitude</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="0">
+       <widget class="QLabel" name="wl_label">
+        <property name="text">
+         <string>West longitude</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="2">
+       <widget class="QLabel" name="el_label">
+        <property name="text">
+         <string>East longitude</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QRadioButton" name="use_bb_coords_rb">
+        <property name="toolTip">
+         <string>Select this option to enter bounding box coordinates manually</string>
+        </property>
+        <property name="text">
+         <string>Use BB coordinates</string>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="0">
+       <widget class="QRadioButton" name="use_le_rb">
+        <property name="toolTip">
+         <string>Click to download data from the sensors failing into the extent of the specified layer</string>
+        </property>
+        <property name="text">
+         <string>Use layer extent:</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QProgressBar" name="progressBar">
+      <property name="value">
+       <number>0</number>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QPushButton" name="settings_pb">
+        <property name="toolTip">
+         <string>Click here if you need to change your API key or adjust number of threads</string>
+        </property>
+        <property name="text">
+         <string>Settings</string>
+        </property>
+        <property name="icon">
+         <iconset theme="SP_ArrowDown">
+          <normaloff>.</normaloff>.</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="stop_pb">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="toolTip">
+         <string>Click here to stop download. The progress bar will quickly reach 99% and then reset to 0%.  It will take about 10-15 seconds.</string>
+        </property>
+        <property name="text">
+         <string>Stop download</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="download_pb">
+        <property name="toolTip">
+         <string>Click to download data. Downloaded data will be added to a new temporary point layer.</string>
+        </property>
+        <property name="text">
+         <string>Download data</string>
+        </property>
+        <property name="icon">
+         <iconset theme="SP_ArrowDown"/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>use_bb_coords_rb</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>north_lat_le</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>42</x>
+     <y>113</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>185</x>
+     <y>148</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>use_le_rb</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>north_lat_le</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>45</x>
+     <y>236</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>153</x>
+     <y>153</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>use_current_extent_rb</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>north_lat_le</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>35</x>
+     <y>86</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>153</x>
+     <y>147</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>use_current_extent_rb</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>west_long_le</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>83</x>
+     <y>89</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>72</x>
+     <y>169</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>use_current_extent_rb</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>east_long_le</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>115</x>
+     <y>90</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>357</x>
+     <y>174</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>use_bb_coords_rb</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>east_long_le</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>57</x>
+     <y>114</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>341</x>
+     <y>180</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>use_le_rb</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>east_long_le</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>59</x>
+     <y>232</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>302</x>
+     <y>169</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>use_le_rb</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>north_lat_le</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>23</x>
+     <y>227</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>234</x>
+     <y>159</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>use_le_rb</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>west_long_le</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>103</x>
+     <y>237</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>92</x>
+     <y>169</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>use_bb_coords_rb</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>west_long_le</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>25</x>
+     <y>114</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>26</x>
+     <y>177</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>use_current_extent_rb</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>south_lat_le</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>52</x>
+     <y>90</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>161</x>
+     <y>204</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>use_le_rb</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>south_lat_le</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>39</x>
+     <y>231</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>171</x>
+     <y>202</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>use_bb_coords_rb</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>south_lat_le</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>48</x>
+     <y>111</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>193</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>use_le_rb</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>layers_combobox</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>16</x>
+     <y>227</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>225</x>
+     <y>231</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>use_le_rb</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>refresh_layers_pb</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>12</x>
+     <y>228</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>310</x>
+     <y>234</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>use_current_extent_rb</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>layers_combobox</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>18</x>
+     <y>89</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>244</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>use_current_extent_rb</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>refresh_layers_pb</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>14</x>
+     <y>91</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>315</x>
+     <y>224</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>use_bb_coords_rb</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>layers_combobox</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>18</x>
+     <y>110</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>211</x>
+     <y>231</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>use_bb_coords_rb</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>refresh_layers_pb</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>15</x>
+     <y>111</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>288</x>
+     <y>225</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
